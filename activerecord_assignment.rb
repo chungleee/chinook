@@ -27,17 +27,18 @@ MediaType.find_by(name: 'MPEG audio file')
   MediaType Load (0.4ms)  SELECT  "media_types".* FROM "media_types" WHERE "media_types"."name" = $1 LIMIT $2  [["name", "MPEG audio file"], ["LIMIT", 1]]
 => #<MediaType id: 1, name: "MPEG audio file", created_at: "2006-11-24 08:21:33", updated_at: "2014-01-29 22:14:22">
 
+
 Track.where(media_type_id: '1').maximum('unit_price')
    (2.5ms)  SELECT MAX("tracks"."unit_price") FROM "tracks" WHERE "tracks"."media_type_id" = $1  [["media_type_id", 1]]
 => #<BigDecimal:7fb6ef2a80c0,'0.99E0',9(18)>
 
 
 # 3b) Find the name of the most expensive track that has the media type "MPEG audio file".
-
+Track.where(media_type_id: '1').where(unit_price: '0.99')
 
 
 # 4) Find the 2 oldest artists.
-
+Artist.order(created_at: :desc).limit(2)
 
 
 ### Stretch Exercise (Active Record Query Interface)
