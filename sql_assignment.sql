@@ -5,7 +5,19 @@
 -- below each of the following questions:
 
 -- 1) Find the albums recorded by the artist Queen.
+SELECT id, name FROM artists WHERE name='Queen';
+ id | name
+----+-------
+ 51 | Queen
+(1 row)
 
+SELECT title FROm albums WHERE artist_id = '51';
+       title
+-------------------
+ Greatest Hits II
+ Greatest Hits I
+ News Of The World
+(3 rows)
 
 
 -- 2) [Count](http://www.w3schools.com/sql/sql_func_count.asp) how many tracks belong to the media type "Protected MPEG-4 video file".
