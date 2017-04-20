@@ -86,3 +86,17 @@ SELECT name FROM artists WHERE name LIKE 'A%';
 
 
 -- 5) Find all the tracks that belong to playlist 1.
+SELECT name, id FROM playlists;
+            name            | id
+----------------------------+----
+ Music                      |  1
+ Movies                     |  2
+ TV Shows                   |  3
+ Audiobooks                 |  4
+ 90’s Music                 |  5
+
+ SELECT COUNT(track_id) FROM playlists_tracks WHERE playlist_id='1';
+ count
+-------
+  3290
+(1 row)
